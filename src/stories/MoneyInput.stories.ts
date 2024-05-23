@@ -1,22 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ButtonsView } from "./ButtonsView.tsx";
+import { MoneyInputView } from "./MoneyInputView.tsx";
 
 const meta = {
-  title: 'Components/Buttons',
-  component: ButtonsView,
+  title: 'Components/Inputs',
+  component: MoneyInputView,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ButtonsView>;
+} satisfies Meta<typeof MoneyInputView>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Buttons: Story = {};
-Buttons.parameters = {
+export const MoneyInputs: Story = {};
+MoneyInputs.parameters = {
   pseudo: {
     hover: [".hover"],
+    focus: [".focus"],
     active: ".active",
   },
 };
