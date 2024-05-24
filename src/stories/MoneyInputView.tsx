@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@emotion/react";
 import { defaultTheme } from "../styles/theme.ts";
-import styles from "./buttonsView.module.scss";
+import styles from "./storyBook.module.scss";
 import { MoneyInput } from "../components/form/MoneyInput.tsx";
 import { useState } from "react";
 import { FormControl } from "@mui/material";
@@ -15,7 +15,6 @@ export const MoneyInputView = () => {
         <div className={styles.column}>
           Default:
           <FormControl>
-            {/*htmlFor="outlined-adornment-password"*/}
             <StyledLabel>I can donate</StyledLabel>
             <MoneyInput amount={undefined} onAmountChange={setAmount}/>
           </FormControl>
