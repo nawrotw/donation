@@ -19,7 +19,8 @@
     "@mui/types": "^7.2.14",
     "date-fns": "^3.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vitest": "^1.6.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",

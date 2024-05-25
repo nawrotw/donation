@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 export const Summary: Story = {
   args: {
     amount: 10,
-    untilDate: new Date('2024-12-01')
+    monthsCount: 1,
   }
 };
 

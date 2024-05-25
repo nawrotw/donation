@@ -2,8 +2,7 @@ import { styled } from "@mui/material/styles";
 import { colors } from "../styles/colors.ts";
 import { Typography } from "@mui/material";
 import { TypographyProps } from "@mui/material/Typography/Typography";
-import { format } from "date-fns";
-import { calcMonthsCount } from "../pages/utils/monthCalculations.ts";
+import { format, addMonths } from "date-fns";
 
 const borderRadius = 4;
 const Root = styled('div')(({ theme }) => ({
@@ -32,12 +31,13 @@ const InfoTypography = styled(({ children, ...rest }: TypographyProps) =>
 
 interface DonationSummaryProps {
   amount: number;
-  untilDate: Date;
+  monthsCount: number;
 }
 
-export const DonationSummary = ({ amount, untilDate }: DonationSummaryProps) => {
-  const monthsCount = calcMonthsCount(untilDate);
-  const total = amount * monthsCount;
+export const DonationSummary = ({ amount, monthsCount }: DonationSummaryProps) => {
+  // TODO wkn is first donation is done immediate on submit?
+  // so if now is 2024-05 and we set monthUntil: 2024-06 donations count === 2?
+  const total = amount * (monthsCount + 1); // +1 for immediate donation
 
   return (
     <Root>
@@ -47,7 +47,7 @@ export const DonationSummary = ({ amount, untilDate }: DonationSummaryProps) => 
       </TotalRow>
       <InfoTypography>
         You will be sending <b>{amount}</b> every month,
-        until <b>{format(untilDate, 'MMMM yyyy')}</b>. Thank you!
+        until <b>{format(addMonths(new Date(), monthsCount), 'MMMM yyyy')}</b>. Thank you!
       </InfoTypography>
     </Root>
   )

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { DonationSummary } from "../components/DonationSummary.tsx";
 import { DonationForm } from "../components/DonationForm.tsx";
 import { addMonths } from "date-fns";
+import { calcMonthsCount } from "./utils/monthCalculations.ts";
 
 const Root = styled('div')`
     position: relative;
@@ -36,7 +37,13 @@ export const DonationPage = () => {
 
   const [amount, setAmount] = useState<number>(25000);
 
-  const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
+  const [untilDate, setUntilDate] = useState<Date>(addMonths(new Date(), 1));
+  const [monthsCount, setMonthsCount] = useState(calcMonthsCount(untilDate));
+
+  const onUntilDateChange = (date: Date) => {
+    setUntilDate(date);
+    setMonthsCount(calcMonthsCount(date));
+  }
 
   const onContinue = () => {
     console.log('Continue');
@@ -47,8 +54,8 @@ export const DonationPage = () => {
   return (
     <Root>
       <StyledGivingBlock sx={{ m: -3, p: 3 }}/>
-      <DonationForm amount={amount} date={date} onAmountChange={setAmount} onDateChange={setDate}/>
-      <DonationSummary amount={amount} untilDate={date}/>
+      <DonationForm amount={amount} date={untilDate} onAmountChange={setAmount} onDateChange={onUntilDateChange}/>
+      <DonationSummary amount={amount} monthsCount={monthsCount}/>
       {isMobile && <MobileCancelButton sx={{ m: 1 }} onClick={onCancel}><CloseIcon/></MobileCancelButton>}
       <Grid container columnSpacing={2} justifyContent="center">
         {!isMobile && <Grid item xs>
