@@ -30,8 +30,9 @@ export const StyledInput = styled(TextField)<InputProps>`
 interface MoneyInputProps {
   amount: number | undefined;
   onAmountChange: (amount: number) => void;
-  className?: string;
+  id?: string;
   autoFocus?: boolean;
+  className?: string;
 }
 
 export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps) => {

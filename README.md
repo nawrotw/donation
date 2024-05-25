@@ -1,2 +1,4 @@
 #Todo
-- zapytać o fonty, find: 'font-family:'
+- ask about fonts, find: 'font-family:'
+- review colors
+- typography inconsistencies
