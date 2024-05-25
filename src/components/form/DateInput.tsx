@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import LeftIcon from "../../assets/LeftIcon.tsx";
 import RightIcon from "../../assets/RightIcon.tsx";
 import { ButtonProps } from "@mui/material/Button/Button";
+import { addMonths, format, isAfter } from "date-fns";
 
 export const Root = styled('div')`
     border: 1px solid ${colors.stroke};
@@ -43,20 +44,32 @@ interface DateInputProps {
   date: Date;
   onDateChange: (date: Date) => void;
   id?: string;
+  onlyFutureMonths?: boolean
 }
 
-export const DateInput = ({ date, onDateChange, ...rest }: DateInputProps) => {
+export const DateInput = ({ date, onDateChange, onlyFutureMonths = true, ...rest }: DateInputProps) => {
 
+  const canDecrementMonth = onlyFutureMonths ?
+    isAfter( addMonths(date, -1), new Date()) :
+    true;
+
+  const incrementMonth = () => {
+    onDateChange(addMonths(date, 1));
+  }
+  const decrementMonth = () => {
+    if(!canDecrementMonth) return;
+    onDateChange(addMonths(date, -1));
+  }
   return (
     <Root
       {...rest}
     >
-      <ArrowButton><LeftIcon color={colors.midnightGray}/></ArrowButton>
+      <ArrowButton onClick={decrementMonth} disabled={!canDecrementMonth}><LeftIcon color={colors.midnightGray}/></ArrowButton>
       <DateContainer>
-        <Title>August</Title>
-        <Subtitle>2024</Subtitle>
+        <Title>{format(date, 'MMMM')}</Title>
+        <Subtitle>{format(date, 'yyyy')}</Subtitle>
       </DateContainer>
-      <ArrowButton variant='text' color='secondary'><RightIcon color={colors.midnightGray}/></ArrowButton>
+      <ArrowButton onClick={incrementMonth}><RightIcon color={colors.midnightGray}/></ArrowButton>
     </Root>
   )
 }

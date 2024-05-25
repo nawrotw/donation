@@ -9,7 +9,7 @@ import RightIcon from "../assets/RightIcon.tsx";
 import { colors } from "../styles/colors.ts";
 import LeftIcon from "../assets/LeftIcon.tsx";
 
-export const DateInputView = () => {
+export const DateInputStory = () => {
   const [date, setDate] = useState<Date>(new Date())
 
   return (

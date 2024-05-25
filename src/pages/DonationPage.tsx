@@ -6,6 +6,7 @@ import CloseIcon from "../assets/CloseIcon.tsx";
 import { useState } from "react";
 import { DonationSummary } from "../components/DonationSummary.tsx";
 import { DonationForm } from "../components/DonationForm.tsx";
+import { addMonths } from "date-fns";
 
 const Root = styled('div')`
     position: relative;
@@ -33,9 +34,9 @@ export const DonationPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [amount, setAmount] = useState<number>(25000)
-  const [date, setDate] = useState<Date>(new Date())
+  const [amount, setAmount] = useState<number>(25000);
 
+  const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
 
   const onContinue = () => {
     console.log('Continue');
@@ -47,7 +48,7 @@ export const DonationPage = () => {
     <Root>
       <StyledGivingBlock sx={{ m: -3, p: 3 }}/>
       <DonationForm amount={amount} date={date} onAmountChange={setAmount} onDateChange={setDate}/>
-      <DonationSummary amount={amount} monthsCount={1}/>
+      <DonationSummary amount={amount} untilDate={date}/>
       {isMobile && <MobileCancelButton sx={{ m: 1 }} onClick={onCancel}><CloseIcon/></MobileCancelButton>}
       <Grid container columnSpacing={2} justifyContent="center">
         {!isMobile && <Grid item xs>
