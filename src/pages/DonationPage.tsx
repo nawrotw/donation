@@ -9,19 +9,21 @@ import { DonationForm } from "../components/DonationForm.tsx";
 import { addMonths } from "date-fns";
 import { calcMonthsCount } from "./utils/monthCalculations.ts";
 
-const Root = styled('div')`
-    position: relative;
-    max-width: 600px;
-    background-color: ${colors.background};
-
-    box-shadow: 0px 16px 32px 0px #1E2A3214;
-
-    padding: ${({ theme }) => theme.spacing(3)};
-
-    & > *:not(:last-child) {
-        margin-bottom: ${({ theme }) => theme.spacing(3)};
-    }
-`;
+const Root = styled('div')(({ theme }) => ({
+  position: 'relative',
+  [theme.breakpoints.up('sm')]: {
+    width: '100%'
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 520
+  },
+  backgroundColor: colors.background,
+  boxShadow: "0px 16px 32px 0px #1E2A3214",
+  padding: theme.spacing(3),
+  "& > *:not(:last-child)": {
+    marginBottom: theme.spacing(3),
+  }
+}));
 
 const StyledGivingBlock = styled(GivingBlock)``;
 

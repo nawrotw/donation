@@ -12,6 +12,8 @@ export const Root = styled('div')`
     display: flex;
     align-items: center;
 
+    height: 56px;
+
     padding: ${({ theme }) => theme.spacing(1.5)};
 `;
 export const DateContainer = styled('div')`

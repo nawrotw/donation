@@ -12,15 +12,31 @@ export const StyledInput = styled(TextField)<InputProps>`
 
     border-color: ${colors.stroke};
 
+    .MuiInputBase-root {
+        line-height: 1em;
+
+        input {
+            height: 1em;
+        }
+    }
+
     input {
         //font-family: Rubik;
         font-size: 24px;
         font-weight: 500;
         text-align: left;
         color: ${colors.purpleGray};
+
+        padding: ${({ theme }) => theme.spacing(2, 2, 2, 1)};
     }
 
     .MuiOutlinedInput-root {
+        padding-left: ${({ theme }) => theme.spacing(1)};
+
+        fieldset {
+            border: 1px solid ${colors.stroke};
+        }
+
         &.Mui-focused fieldset {
             border: 1px solid ${colors.midnightPurple};
         }
