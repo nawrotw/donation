@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MoneyInputView } from "./MoneyInputView.tsx";
+import { MoneyInputStory } from "./MoneyInputStory.tsx";
+import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {
   title: 'Components/MoneyInput',
-  component: MoneyInputView,
+  component: themeWrapper(MoneyInputStory),
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof MoneyInputView>;
+} satisfies Meta<typeof MoneyInputStory>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

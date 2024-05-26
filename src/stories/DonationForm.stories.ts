@@ -1,16 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DonationFormView } from "./DonationFormView.tsx";
+import { DonationForm } from "../components/DonationForm.tsx";
+import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {
   title: 'DonationComponents/Form',
-  component: DonationFormView,
+  component: themeWrapper(DonationForm),
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof DonationFormView>;
+} satisfies Meta<typeof DonationForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Form: Story = {};
+export const Form: Story = {
+  args: {
+    amount: 10,
+    date: new Date(),
+    onAmountChange: () => {},
+    onDateChange: () => {}
+  }
+};
 

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonsStory } from "./ButtonsStory.tsx";
+import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {
   title: 'Components/Buttons',
-  component: ButtonsStory,
+  component: themeWrapper(ButtonsStory),
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof ButtonsStory>;
 
 export default meta;

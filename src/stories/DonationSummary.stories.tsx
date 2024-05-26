@@ -1,25 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DonationSummary, DonationSummaryProps } from "../components/DonationSummary.tsx";
-import { ThemeProvider } from "@emotion/react";
-import { defaultTheme } from "../styles/theme.ts";
-
-const DonationStory = (props: DonationSummaryProps) => {
-
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <DonationSummary {...props}/>
-    </ThemeProvider>
-  );
-};
-
+import { DonationSummary } from "../components/DonationSummary.tsx";
+import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {
   title: 'DonationComponents/Summary',
-  component: DonationStory,
+  component: themeWrapper(DonationSummary),
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof DonationStory>;
+} satisfies Meta<typeof DonationSummary>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

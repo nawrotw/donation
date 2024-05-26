@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DateInputStory } from "./DateInputStory.tsx";
+import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {
   title: 'Components/DateInput',
-  component: DateInputStory,
+  component: themeWrapper(DateInputStory),
   parameters: {
     layout: 'centered',
   },
