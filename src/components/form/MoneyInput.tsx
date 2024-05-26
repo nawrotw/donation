@@ -58,6 +58,7 @@ export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps)
 
   const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
+    onAmountChange(parseFloat(event.target.value));
   }
   const onFocus = (event: FocusEvent<HTMLInputElement>) => {
     console.log('focus', event)
@@ -74,6 +75,10 @@ export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps)
           fontSize: 24,
           ml: 4,
           color: alpha('#000000', 0.2),
+          lineHeight: '1em',
+          '&.Mui-focused': {
+            color: alpha('#000000', 0.2),
+          }
         }
       }}
       label={isEmpty ? "0.00" : ""}

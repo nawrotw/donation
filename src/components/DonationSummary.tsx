@@ -3,6 +3,7 @@ import { colors } from "../styles/colors.ts";
 import { Typography } from "@mui/material";
 import { TypographyProps } from "@mui/material/Typography/Typography";
 import { format, addMonths } from "date-fns";
+import { formatMoney } from "../common/domain/money/formatMoney.ts";
 
 const borderRadius = 4;
 const Root = styled('div')(({ theme }) => ({
@@ -41,10 +42,10 @@ export const DonationSummary = ({ amount, monthsCount, totalDonation }: Donation
     <Root>
       <TotalRow>
         <Typography variant='body1'>Total amount</Typography>
-        <Typography variant='body2'>{totalDonation}</Typography>
+        <Typography variant='body2'>{formatMoney(totalDonation)}</Typography>
       </TotalRow>
       <InfoTypography>
-        You will be sending <b>{amount}</b> every month,
+        You will be sending <b>{formatMoney(amount)}</b> every month,
         until <b>{format(addMonths(new Date(), monthsCount), 'MMMM yyyy')}</b>. Thank you!
       </InfoTypography>
     </Root>

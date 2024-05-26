@@ -18,7 +18,7 @@ export const DonationForm = (props: DonationFormProps) => {
       <Grid item xs={12} sm>
         <FormControl fullWidth>
           <StyledLabel htmlFor="donationAmount">I can donate</StyledLabel>
-          <MoneyInput id="donationDate" autoFocus amount={amount} onAmountChange={onAmountChange}/>
+          <MoneyInput id="donationAmount" autoFocus amount={amount} onAmountChange={onAmountChange}/>
         </FormControl>
       </Grid>
       <Grid item xs={12} sm>
