@@ -16,3 +16,13 @@ Is first donation done immediate on submit?
 What is more important to the user:
 1. Total donated amount - donation last month might change
 2. Donation last month - totalAmount might change
+              
+#Suggestions
+- use named typography in Figma designs e.g. body1, body2 and then use them by name in code
+  - much simpler in implementation and less space for a human error
+  - reduced total number of different topographies in UI
+- use only named colors - it is partially done, but not always
+  - define colors palette and use only defined colors - it will help reducing number of colors in UI
+  - for darker/lighter colors use some strategy like lighten/darken functions (:hover, :active)
+
+Having finite number of colors and topographies makes UI feel better
