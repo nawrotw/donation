@@ -50,26 +50,39 @@ interface DateInputProps {
 export const DateInput = ({ date, onDateChange, onlyFutureMonths = true, ...rest }: DateInputProps) => {
 
   const canDecrementMonth = onlyFutureMonths ?
-    isAfter( addMonths(date, -1), new Date()) :
+    isAfter(addMonths(date, -1), new Date()) :
     true;
 
   const incrementMonth = () => {
     onDateChange(addMonths(date, 1));
   }
   const decrementMonth = () => {
-    if(!canDecrementMonth) return;
+    if (!canDecrementMonth) return;
     onDateChange(addMonths(date, -1));
   }
   return (
     <Root
       {...rest}
     >
-      <ArrowButton onClick={decrementMonth} disabled={!canDecrementMonth}><LeftIcon color={colors.midnightGray}/></ArrowButton>
+      <ArrowButton
+        data-testid='prevMonth'
+        onClick={decrementMonth}
+        disabled={!canDecrementMonth}
+      >
+        <LeftIcon color={colors.midnightGray}/>
+      </ArrowButton>
+
       <DateContainer>
         <Title>{format(date, 'MMMM')}</Title>
         <Subtitle>{format(date, 'yyyy')}</Subtitle>
       </DateContainer>
-      <ArrowButton onClick={incrementMonth}><RightIcon color={colors.midnightGray}/></ArrowButton>
+
+      <ArrowButton
+        data-testid='nextMonth'
+        onClick={incrementMonth}
+      >
+        <RightIcon color={colors.midnightGray}/>
+      </ArrowButton>
     </Root>
   )
 }
