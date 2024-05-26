@@ -36,12 +36,14 @@ export const DonationPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [amount, setAmount] = useState<number>(25000);
+  const [monthsCount, setMonthsCount] = useState(1);
 
-  const [untilDate, setUntilDate] = useState<Date>(addMonths(new Date(), 1));
-  const [monthsCount, setMonthsCount] = useState(calcMonthsCount(untilDate));
+  // TODO wkn is first donation is done immediate on submit?
+  // so if now is 2024-05 and we set monthUntil: 2024-06 donations count === 2?
+  const totalDonation = amount * (monthsCount + 1); // +1 for immediate donation
+  const untilDate = addMonths(new Date(), monthsCount);
 
   const onUntilDateChange = (date: Date) => {
-    setUntilDate(date);
     setMonthsCount(calcMonthsCount(date));
   }
 
@@ -55,7 +57,7 @@ export const DonationPage = () => {
     <Root>
       <StyledGivingBlock sx={{ m: -3, p: 3 }}/>
       <DonationForm amount={amount} date={untilDate} onAmountChange={setAmount} onDateChange={onUntilDateChange}/>
-      <DonationSummary amount={amount} monthsCount={monthsCount}/>
+      <DonationSummary amount={amount} monthsCount={monthsCount} totalDonation={totalDonation}/>
       {isMobile && <MobileCancelButton sx={{ m: 1 }} onClick={onCancel}><CloseIcon/></MobileCancelButton>}
       <Grid container columnSpacing={2} justifyContent="center">
         {!isMobile && <Grid item xs>

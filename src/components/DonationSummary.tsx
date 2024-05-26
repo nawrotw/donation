@@ -29,21 +29,19 @@ const InfoTypography = styled(({ children, ...rest }: TypographyProps) =>
   borderBottomLeftRadius: borderRadius - 1,
 }));
 
-interface DonationSummaryProps {
+export interface DonationSummaryProps {
   amount: number;
   monthsCount: number;
+  totalDonation: number;
 }
 
-export const DonationSummary = ({ amount, monthsCount }: DonationSummaryProps) => {
-  // TODO wkn is first donation is done immediate on submit?
-  // so if now is 2024-05 and we set monthUntil: 2024-06 donations count === 2?
-  const total = amount * (monthsCount + 1); // +1 for immediate donation
+export const DonationSummary = ({ amount, monthsCount, totalDonation }: DonationSummaryProps) => {
 
   return (
     <Root>
       <TotalRow>
         <Typography variant='body1'>Total amount</Typography>
-        <Typography variant='body2'>{total}</Typography>
+        <Typography variant='body2'>{totalDonation}</Typography>
       </TotalRow>
       <InfoTypography>
         You will be sending <b>{amount}</b> every month,
