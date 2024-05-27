@@ -61,7 +61,6 @@ export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps)
 
   const [prevAmount, setPrevAmount] = useState(amount);
   if (amount !== prevAmount) {
-    console.log('amount', amount)
     setPrevAmount(amount);
   }
 
