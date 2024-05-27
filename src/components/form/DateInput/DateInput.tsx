@@ -5,6 +5,7 @@ import LeftIcon from "../../../assets/LeftIcon.tsx";
 import RightIcon from "../../../assets/RightIcon.tsx";
 import { ButtonProps } from "@mui/material/Button/Button";
 import { addMonths, format, isAfter } from "date-fns";
+import { KeyboardEvent } from "react";
 
 export const Root = styled('div')`
     border: 1px solid ${colors.stroke};
@@ -15,6 +16,11 @@ export const Root = styled('div')`
     height: 56px;
 
     padding: ${({ theme }) => theme.spacing(1.5)};
+
+    :focus-visible {
+        outline: none;
+    }
+    // TODO wkn design idea: probably good ideal would be to implement :hove, :active border/outline similar to money input
 `;
 export const DateContainer = styled('div')`
     text-align: center;
@@ -62,8 +68,22 @@ export const DateInput = ({ date, onDateChange, onlyFutureMonths = true, ...rest
     if (!canDecrementMonth) return;
     onDateChange(addMonths(date, -1));
   }
+
+  const keysActionMap: Record<string, () => void> = {
+    'ArrowLeft': decrementMonth,
+    'ArrowRight': incrementMonth,
+    '+': incrementMonth,
+    '-': decrementMonth,
+  }
+
+  const onKeyUp = (event: KeyboardEvent<HTMLDivElement>) => {
+    keysActionMap[event.key]?.();
+  }
+
   return (
     <Root
+      tabIndex={-1}
+      onKeyUp={onKeyUp}
       {...rest}
     >
       <ArrowButton
