@@ -1,7 +1,7 @@
-import { MoneyInput } from "./form/MoneyInput.tsx";
+import { MoneyInput } from "./form/MoneyInput/MoneyInput.tsx";
 import { FormControl, Grid } from "@mui/material";
 import { StyledLabel } from "./form/StyledLabel.tsx";
-import { DateInput } from "./form/DateInput.tsx";
+import { DateInput } from "./form/DateInput/DateInput.tsx";
 
 export interface DonationFormProps {
   amount: number;

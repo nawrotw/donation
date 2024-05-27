@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles';
-import { colors } from "../../styles/colors.ts";
+import { colors } from "../../../styles/colors.ts";
 import { Button } from "@mui/material";
-import LeftIcon from "../../assets/LeftIcon.tsx";
-import RightIcon from "../../assets/RightIcon.tsx";
+import LeftIcon from "../../../assets/LeftIcon.tsx";
+import RightIcon from "../../../assets/RightIcon.tsx";
 import { ButtonProps } from "@mui/material/Button/Button";
 import { addMonths, format, isAfter } from "date-fns";
 

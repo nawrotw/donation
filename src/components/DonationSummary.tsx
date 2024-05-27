@@ -3,7 +3,7 @@ import { colors } from "../styles/colors.ts";
 import { Typography } from "@mui/material";
 import { TypographyProps } from "@mui/material/Typography/Typography";
 import { format, addMonths } from "date-fns";
-import { formatMoney } from "../common/domain/money/formatMoney.ts";
+import { formatMoney } from "../common/domain/money/moneyUtils.ts";
 
 const borderRadius = 4;
 const Root = styled('div')(({ theme }) => ({

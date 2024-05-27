@@ -1,8 +1,10 @@
 import { styled } from '@mui/material/styles';
-import { colors } from "../../styles/colors.ts";
+import { colors } from "../../../styles/colors.ts";
 import { TextField, InputAdornment, alpha } from "@mui/material";
-import DollarIcon from "../../assets/DollarIcon.tsx";
-import { useState, ChangeEvent, FocusEvent } from "react";
+import DollarIcon from "../../../assets/DollarIcon.tsx";
+import { useState, ChangeEvent } from "react";
+import { formatNumber } from "../../../common/domain/money/moneyUtils.ts";
+import { parseFormatInputString } from "./moneyInputUtils.ts";
 
 interface InputProps {
   isEmpty?: boolean;
@@ -43,6 +45,7 @@ export const StyledInput = styled(TextField)<InputProps>`
     }
 `;
 
+
 interface MoneyInputProps {
   amount: number | undefined;
   onAmountChange: (amount: number) => void;
@@ -51,21 +54,32 @@ interface MoneyInputProps {
   className?: string;
 }
 
+// I could use something like this: https://github.com/autoNumeric/autoNumeric for dealing with currency formatting and parsing,
+// but probably I would kill the purpose to this challenge :-)
 export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps) => {
-  const [text, setText] = useState(amount ? "" + amount : "0");
+  const [inputValue, setInputValue] = useState(formatNumber(amount));
+
+  const [prevAmount, setPrevAmount] = useState(amount);
+  if (amount !== prevAmount) {
+    console.log('amount', amount)
+    setPrevAmount(amount);
+  }
 
   const isEmpty = !Boolean(amount) && amount !== 0;
 
   const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-    onAmountChange(parseFloat(event.target.value));
+    const valueStr = event.target.value;
+    const resp = parseFormatInputString(valueStr);
+
+    if(!resp) {
+      return;
+    }
+
+    onAmountChange(resp.number);
+    setInputValue(resp.formattedStr);
+
   }
-  const onFocus = (event: FocusEvent<HTMLInputElement>) => {
-    console.log('focus', event)
-  }
-  const onBlur = (event: FocusEvent<HTMLInputElement>) => {
-    console.log('blur', event)
-  }
+
   return (
     <StyledInput
       InputLabelProps={{
@@ -83,10 +97,8 @@ export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps)
       }}
       label={isEmpty ? "0.00" : ""}
 
-      value={text}
+      value={inputValue}
       onChange={onValueChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
       InputProps={{
         startAdornment: <InputAdornment position="start"><DollarIcon/></InputAdornment>,
       }}
