@@ -11,17 +11,19 @@ import { calcMonthsCount } from "./utils/monthCalculations.ts";
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
+  padding: theme.spacing(3),
+  paddingBottom: theme.spacing(5),
   [theme.breakpoints.up('sm')]: {
     width: '100%'
   },
   [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(5),
     width: 520
   },
   backgroundColor: colors.background,
   boxShadow: "0px 16px 32px 0px #1E2A3214",
-  padding: theme.spacing(3),
   "& > *:not(:last-child)": {
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(5),
   }
 }));
 
@@ -57,11 +59,11 @@ export const DonationPage = () => {
   }
   return (
     <Root>
-      <StyledGivingBlock sx={{ m: -3, p: 3 }}/>
+      <StyledGivingBlock sx={{ m: {xs: -3, md: -5}, p: {xs: 3, md: 5} }}/>
       <DonationForm amount={amount} date={untilDate} onAmountChange={setAmount} onDateChange={onUntilDateChange}/>
       <DonationSummary amount={amount} monthsCount={monthsCount} totalDonation={totalDonation}/>
       {isMobile && <MobileCancelButton sx={{ m: 1 }} onClick={onCancel}><CloseIcon/></MobileCancelButton>}
-      <Grid container columnSpacing={2} justifyContent="center">
+      <Grid container columnSpacing={2} justifyContent="center" sx={{ mt: 0 }}>
         {!isMobile && <Grid item xs>
           <Button variant='outlined' fullWidth onClick={onCancel}>Cancel</Button>
         </Grid>}

@@ -14,7 +14,7 @@ export const DonationForm = (props: DonationFormProps) => {
   const { amount, date, onAmountChange, onDateChange } = props;
 
   return (
-    <Grid container columnSpacing={2} justifyContent="center">
+    <Grid container spacing={2} justifyContent="center">
       <Grid item xs={12} sm>
         <FormControl fullWidth>
           <StyledLabel htmlFor="donationAmount">I can donate</StyledLabel>

@@ -14,12 +14,15 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
-const TotalRow = styled('div')`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: ${({ theme }) => theme.spacing(3, 2, 3, 2)};
-`;
+const TotalRow = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: theme.spacing(3, 2),
+  [theme.breakpoints.up('md')]: {
+    paddingTop: 0,  // this seems to me like kind of a hack - and it is needed because of design - in mobile there is a frame in desktop isn't.
+  },
+}));
 
 const InfoTypography = styled(({ children, ...rest }: TypographyProps) =>
   <Typography variant='subtitle1' {...rest}>{children}</Typography>

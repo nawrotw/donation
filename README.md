@@ -13,6 +13,7 @@ Is first donation done immediate on submit?
      - now: 2024-05, monthUntil: 2024-06, donation: 1 => totalDonation === 2?
 MobileView:
  - action button at the bottom of the screen? (show resizing)
+
                 
 [CornerCase] when month changed e.g. user changed untilMonth at 2024-04-30T23:59:59.900Z 
 What is more important to the user:

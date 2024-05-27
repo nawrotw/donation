@@ -68,6 +68,23 @@ export const defaultTheme: ThemeOptions = {
       },
     },
   },
+  typography: {
+    subtitle1: {
+      // fontFamily: "Work Sans",
+      fontSize: 12,
+      fontWeight: 400,
+      lineHeight: '17px',
+      color: colors.body1,
+    },
+    h6: {
+      // fontFamily: "Inter",
+      fontSize: 16,
+      fontWeight: 400,
+      lineHeight: '20px',
+      color: colors.purpleGray
+    },
+
+  }
 };
 
 export const typographyMobile: TypographyOptions = {
@@ -75,44 +92,53 @@ export const typographyMobile: TypographyOptions = {
     // fontFamily: "Work Sans",
     fontSize: 16,
     fontWeight: 500,
+    lineHeight: '19px',
     color: colors.body1
   },
   body2: {
     // fontFamily: "Inter",
     fontSize: 24,
     fontWeight: 700,
+    lineHeight: '28px',
     color: colors.purpleGray
   },
-  subtitle1: {
+  h3: {
     // fontFamily: "Work Sans",
-    fontSize: 12,
-    fontWeight: 400,
-    color: colors.body1,
-  }
+    fontSize: 24,
+    fontWeight: 600,
+    lineHeight: '29px',
+    color: colors.midnightPurple
+  },
 };
 
 export const typographyDesktop: TypographyOptions = {
   body1: {
     // fontFamily: "Work Sans",
-    fontSize: 36,
+    fontSize: 20,
     fontWeight: 500,
+    lineHeight: '24px',
     color: colors.body1
   },
   body2: {
     // fontFamily: "Inter",
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 700,
+    lineHeight: '38px',
     color: colors.purpleGray
   },
-  subtitle1: {
+  h3: {
     // fontFamily: "Work Sans",
-    fontSize: 12,
-    fontWeight: 400,
-    color: colors.body1,
-  }
+    fontSize: 32,
+    fontWeight: 600,
+    lineHeight: '38px',
+    color: colors.midnightPurple
+  },
 };
 
 export const buildTheme = (isMobile: boolean) => createTheme({
   ...defaultTheme,
-  typography: isMobile ? typographyMobile : typographyDesktop
+  typography: {
+    ...defaultTheme.typography,
+    ...(isMobile ? typographyMobile : typographyDesktop)
+  }
 });
