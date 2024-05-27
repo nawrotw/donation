@@ -1,7 +1,7 @@
-import PeopleWithHeartIcon from "../assets/PeopleWithHeartIcon.tsx";
+import PeopleWithHeartIcon from "../../../assets/PeopleWithHeartIcon.tsx";
 import { Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { colors } from "../styles/colors.ts";
+import { colors } from "../../../styles/colors.ts";
 
 const Root = styled('div')(({ theme }) => ({
   textAlign: 'center',

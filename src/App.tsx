@@ -5,7 +5,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from "@emotion/react";
 import { buildTheme } from "./styles/theme.ts";
-import { DonationPage } from "./pages/DonationPage.tsx";
+import { DonationPage } from "./pages/donationPage/DonationPage.tsx";
 import { styled } from "@mui/material/styles";
 import { colors } from "./styles/colors.ts";
 import { CssBaseline, useMediaQuery, useTheme } from "@mui/material";

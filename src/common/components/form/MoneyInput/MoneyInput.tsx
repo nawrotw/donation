@@ -1,9 +1,9 @@
 import { styled } from '@mui/material/styles';
-import { colors } from "../../../styles/colors.ts";
+import { colors } from "../../../../styles/colors.ts";
 import { TextField, InputAdornment, alpha } from "@mui/material";
-import DollarIcon from "../../../assets/DollarIcon.tsx";
+import DollarIcon from "../../../../assets/DollarIcon.tsx";
 import { useState, ChangeEvent } from "react";
-import { formatNumber } from "../../../common/domain/money/moneyUtils.ts";
+import { formatNumber } from "../../../utils/money/moneyUtils.ts";
 import { parseFormatInputString } from "./moneyInputUtils.ts";
 
 interface InputProps {

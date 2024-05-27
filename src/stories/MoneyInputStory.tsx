@@ -1,8 +1,8 @@
 import styles from "./storyBook.module.scss";
-import { MoneyInput } from "../components/form/MoneyInput/MoneyInput.tsx";
+import { MoneyInput } from "../common/components/form/MoneyInput/MoneyInput.tsx";
 import { useState } from "react";
 import { FormControl } from "@mui/material";
-import { StyledLabel } from "../components/form/StyledLabel.tsx";
+import { StyledLabel } from "../common/components/form/StyledLabel.tsx";
 
 export const MoneyInputStory = () => {
   const [amount, setAmount] = useState<number>(25000)

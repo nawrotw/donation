@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DonationSummary } from "../components/DonationSummary.tsx";
+import { DonationSummary } from "../pages/donationPage/components/DonationSummary.tsx";
 import { themeWrapper } from "./utils/themeWrapper.tsx";
 
 const meta = {

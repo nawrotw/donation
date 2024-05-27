@@ -1,4 +1,4 @@
-import { isMoneyInputValid, parseMoney, formatNumber, DECIMAL_SEPARATOR } from "../../../common/domain/money/moneyUtils.ts";
+import { isMoneyInputValid, parseMoney, formatNumber, DECIMAL_SEPARATOR } from "../../../utils/money/moneyUtils.ts";
 
 export interface ParseFormatResponse {
   number: number;

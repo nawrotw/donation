@@ -1,8 +1,8 @@
 import styles from "./storyBook.module.scss";
 import { useState } from "react";
 import { FormControl } from "@mui/material";
-import { StyledLabel } from "../components/form/StyledLabel.tsx";
-import { DateInput, ArrowButton } from "../components/form/DateInput/DateInput.tsx";
+import { StyledLabel } from "../common/components/form/StyledLabel.tsx";
+import { DateInput, ArrowButton } from "../common/components/form/DateInput/DateInput.tsx";
 import RightIcon from "../assets/RightIcon.tsx";
 import { colors } from "../styles/colors.ts";
 import LeftIcon from "../assets/LeftIcon.tsx";

@@ -1,9 +1,9 @@
 import { styled } from "@mui/material/styles";
-import { colors } from "../styles/colors.ts";
+import { colors } from "../../../styles/colors.ts";
 import { Typography } from "@mui/material";
 import { TypographyProps } from "@mui/material/Typography/Typography";
 import { format, addMonths } from "date-fns";
-import { formatMoney } from "../common/domain/money/moneyUtils.ts";
+import { formatMoney } from "../../../common/utils/money/moneyUtils.ts";
 
 const borderRadius = 4;
 const Root = styled('div')(({ theme }) => ({

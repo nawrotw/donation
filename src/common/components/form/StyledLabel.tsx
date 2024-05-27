@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { colors } from "../../styles/colors.ts";
+import { colors } from "../../../styles/colors.ts";
 
 export const StyledLabel = styled('label')`
     //font-family: Work Sans;

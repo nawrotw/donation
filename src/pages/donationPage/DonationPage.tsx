@@ -1,13 +1,13 @@
-import { GivingBlock } from "../components/GivingBlock.tsx";
+import { GivingBlock } from "./components/GivingBlock.tsx";
 import { Button, Grid, useMediaQuery, useTheme, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { colors } from "../styles/colors.ts";
-import CloseIcon from "../assets/CloseIcon.tsx";
+import { colors } from "../../styles/colors.ts";
+import CloseIcon from "../../assets/CloseIcon.tsx";
 import { useState } from "react";
-import { DonationSummary } from "../components/DonationSummary.tsx";
-import { DonationForm } from "../components/DonationForm.tsx";
+import { DonationSummary } from "./components/DonationSummary.tsx";
+import { DonationForm } from "./components/DonationForm.tsx";
 import { addMonths } from "date-fns";
-import { calcMonthsCount } from "./utils/monthCalculations.ts";
+import { calcMonthsCount } from "../../common/utils/date/monthCalculations.ts";
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
