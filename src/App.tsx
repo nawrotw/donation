@@ -4,11 +4,11 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from "@emotion/react";
-import { defaultTheme } from "./styles/theme.ts";
+import { buildTheme } from "./styles/theme.ts";
 import { DonationPage } from "./pages/DonationPage.tsx";
 import { styled } from "@mui/material/styles";
 import { colors } from "./styles/colors.ts";
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -24,9 +24,12 @@ const Root = styled('div')(({ theme }) => ({
 
 function App() {
 
+  const { breakpoints } = useTheme();
+  const isMobile = useMediaQuery(breakpoints.down('sm'));
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
+    <ThemeProvider theme={buildTheme(isMobile)}>
+      <CssBaseline/>
       <Root>
         <DonationPage/>
       </Root>
