@@ -10,13 +10,17 @@ import { styled } from "@mui/material/styles";
 import { colors } from "./styles/colors.ts";
 import { CssBaseline } from "@mui/material";
 
-const Root = styled('div')`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: ${colors.stroke};
-`;
+const Root = styled('div')(({ theme }) => ({
+  position: 'relative',
+  [theme.breakpoints.up('md')]: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    backgroundColor: colors.stroke
+  },
+}));
+
 
 function App() {
 
