@@ -30,6 +30,7 @@ export const defaultTheme: ThemeOptions = {
       defaultProps: {
         variant: 'contained',
         disableRipple: true,
+        sx: { p: 1.5 }
       },
       styleOverrides: {
         containedPrimary: {

@@ -11,14 +11,13 @@ import { calcMonthsCount } from "../../common/utils/date/monthCalculations.ts";
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
-  padding: theme.spacing(3),
-  paddingBottom: theme.spacing(5),
+  padding: theme.spacing(3, 3, 5, 3),
   [theme.breakpoints.up('sm')]: {
     width: '100%'
   },
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(5),
-    width: 520
+    padding: theme.spacing(4, 5),
+    width: 600
   },
   backgroundColor: colors.background,
   boxShadow: "0px 16px 32px 0px #1E2A3214",
@@ -27,7 +26,15 @@ const Root = styled('div')(({ theme }) => ({
   }
 }));
 
-const StyledGivingBlock = styled(GivingBlock)``;
+const StyledGivingBlock = styled(GivingBlock)(({ theme }) => ({
+  margin: theme.spacing(-3, -3, -3, -3),
+  padding: theme.spacing(3, 3, 3, 3),
+  [theme.breakpoints.up('md')]: {
+    margin: theme.spacing(-4, -5),
+    padding: theme.spacing(4, 5),
+  },
+
+}));
 
 export const MobileCancelButton = styled((IconButton))`
     position: absolute;
@@ -59,7 +66,7 @@ export const DonationPage = () => {
   }
   return (
     <Root>
-      <StyledGivingBlock sx={{ m: {xs: -3, md: -5}, p: {xs: 3, md: 5} }}/>
+      <StyledGivingBlock/>
       <DonationForm amount={amount} date={untilDate} onAmountChange={setAmount} onDateChange={onUntilDateChange}/>
       <DonationSummary amount={amount} monthsCount={monthsCount} totalDonation={totalDonation}/>
       {isMobile && <MobileCancelButton sx={{ m: 1 }} onClick={onCancel}><CloseIcon/></MobileCancelButton>}

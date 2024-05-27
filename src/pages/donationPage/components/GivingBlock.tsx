@@ -9,7 +9,6 @@ const Root = styled('div')(({ theme }) => ({
   color: theme.palette.primary.main,
   [theme.breakpoints.up('sm')]: {
     textAlign: 'left',
-    padding: theme.spacing(3, 4, 3),
   },
 }));
 
