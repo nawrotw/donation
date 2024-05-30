@@ -43,11 +43,11 @@ export const DonationSummary = ({ amount, monthsCount, totalDonation }: Donation
 
   return (
     <Root>
-      <TotalRow>
+      <TotalRow data-testid='donationTotalAmount'>
         <Typography variant='body1'>Total amount</Typography>
         <Typography variant='body2'>{formatMoney(totalDonation)}</Typography>
       </TotalRow>
-      <InfoTypography>
+      <InfoTypography data-testid='donationSummary'>
         You will be sending <b>{formatMoney(amount)}</b> every month,
         until <b>{format(addMonths(new Date(), monthsCount), 'MMMM yyyy')}</b>. Thank you!
       </InfoTypography>
