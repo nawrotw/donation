@@ -1,11 +1,11 @@
-import styles from "./storyBook.module.scss";
+import styles from "../../storyBook.module.scss";
 import { useState } from "react";
 import { FormControl } from "@mui/material";
-import { StyledLabel } from "../common/components/form/StyledLabel.tsx";
-import { DateInput, ArrowButton } from "../common/components/form/DateInput/DateInput.tsx";
-import RightIcon from "../assets/RightIcon.tsx";
-import { colors } from "../styles/colors.ts";
-import LeftIcon from "../assets/LeftIcon.tsx";
+import { StyledLabel } from "../../../common/components/form/StyledLabel.tsx";
+import { DateInput, ArrowButton } from "../../../common/components/form/DateInput/DateInput.tsx";
+import RightIcon from "../../../assets/RightIcon.tsx";
+import { colors } from "../../../styles/colors.ts";
+import LeftIcon from "../../../assets/LeftIcon.tsx";
 
 export const DateInputStory = () => {
   const [date, setDate] = useState<Date>(new Date())

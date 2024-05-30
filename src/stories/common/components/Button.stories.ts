@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonsStory } from "./ButtonsStory.tsx";
-import { themeWrapper } from "./utils/themeWrapper.tsx";
+import { themeWrapper } from "../../utils/themeWrapper.tsx";
 
 const meta = {
   title: 'Components/Buttons',

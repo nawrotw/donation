@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DonationForm } from "../pages/donationPage/components/DonationForm.tsx";
-import { themeWrapper } from "./utils/themeWrapper.tsx";
+import { DonationForm } from "../../../pages/donationPage/components/DonationForm.tsx";
+import { themeWrapper } from "../../utils/themeWrapper.tsx";
 
 const meta = {
-  title: 'DonationComponents/Form',
+  title: 'Donation/Components/Form',
   component: themeWrapper(DonationForm),
   parameters: {
     layout: 'centered',

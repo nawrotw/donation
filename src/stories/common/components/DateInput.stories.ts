@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DateInputStory } from "./DateInputStory.tsx";
-import { themeWrapper } from "./utils/themeWrapper.tsx";
+import { themeWrapper } from "../../utils/themeWrapper.tsx";
 
 const meta = {
   title: 'Components/DateInput',

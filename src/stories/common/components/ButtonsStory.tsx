@@ -1,5 +1,5 @@
 import { Button as MuiButton } from "@mui/material";
-import styles from "./storyBook.module.scss";
+import styles from "../../storyBook.module.scss";
 
 export const ButtonsStory = () => {
   return (<>
