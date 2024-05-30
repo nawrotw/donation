@@ -1,11 +1,9 @@
-import { render, cleanup, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi, beforeEach } from "vitest";
 import { DateInput } from "./DateInput.tsx";
 import userEvent from '@testing-library/user-event'
 
 describe("DateInput", () => {
-
-  afterEach(cleanup);
 
   it("should render proper date", () => {
 

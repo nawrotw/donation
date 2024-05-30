@@ -11,4 +11,10 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    { // https://github.com/testing-library/eslint-plugin-testing-library?tab=readme-ov-file#eslint-overrides
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
 }

@@ -64,7 +64,7 @@ export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps)
     setPrevAmount(amount);
   }
 
-  const isEmpty = !Boolean(amount) && amount !== 0;
+  const isEmpty = !amount && amount !== 0;
 
   const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     const valueStr = event.target.value;

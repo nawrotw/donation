@@ -1,11 +1,11 @@
-import { render, cleanup, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { MoneyInput } from "./MoneyInput.tsx";
 import { parseFormatInputString } from "./moneyInputUtils.ts";
 
 
 const setup = (amount: number) => {
-  const renderResult = render(
+  const view = render(
     <MoneyInput
       data-testid='moneyInput'
       amount={amount}
@@ -14,7 +14,8 @@ const setup = (amount: number) => {
   );
 
   return {
-    ...renderResult,
+    ...view,
+    // eslint-disable-next-line testing-library/no-node-access
     inputValue: screen.getByTestId('moneyInput').querySelector('input')?.value
   }
 }
@@ -30,8 +31,6 @@ const cases = [
 
 
 describe("MoneyInput", () => {
-
-  afterEach(cleanup);
 
   describe('should render proper date', () => {
     it.each(cases)('$number => $inputStr', ({number, inputStr}) => {

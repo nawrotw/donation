@@ -6,7 +6,7 @@ import { NumberParser, NumberFormatter } from '@internationalized/number';
 // right now we support only en-US locales
 export const DECIMAL_SEPARATOR = '.';
 export const GROUPING_SEPARATOR = ',';
-let parser = new NumberParser('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+const parser = new NumberParser('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
 
 const numberFormatter = new NumberFormatter('en-US', { currency: 'USD', maximumFractionDigits: 2 });
 const currencyFormatter = new NumberFormatter('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });

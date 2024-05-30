@@ -82,6 +82,7 @@ export const DateInput = ({ date, onDateChange, onlyFutureMonths = true, ...rest
 
   return (
     <Root
+      data-testid='dateInput'
       tabIndex={-1}
       onKeyUp={onKeyUp}
       {...rest}
