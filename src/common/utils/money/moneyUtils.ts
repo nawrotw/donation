@@ -18,9 +18,9 @@ export const formatMoney = (amount: number | undefined): string => {
   return currencyFormatter.format(amount); // Formats as USD currency: "$4,999.99"
 }
 
-export const formatNumber = (amount: number | undefined): string => {
+export const formatNumber = (amount: number | undefined, emptyStr = '---'): string => {
   if (amount === undefined || isNaN(amount)) {
-    return '---';
+    return emptyStr;
   }
   return numberFormatter.format(amount); // Formats as USD currency: "$4,999.99"
 }

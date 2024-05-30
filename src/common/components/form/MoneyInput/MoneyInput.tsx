@@ -57,7 +57,7 @@ interface MoneyInputProps {
 // I could use something like this: https://github.com/autoNumeric/autoNumeric for dealing with currency formatting and parsing,
 // but probably I would kill the purpose to this challenge :-)
 export const MoneyInput = ({ amount, onAmountChange, ...rest }: MoneyInputProps) => {
-  const [inputValue, setInputValue] = useState(formatNumber(amount));
+  const [inputValue, setInputValue] = useState(formatNumber(amount, ''));
 
   const [prevAmount, setPrevAmount] = useState(amount);
   if (amount !== prevAmount) {
