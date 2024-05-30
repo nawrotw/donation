@@ -14,8 +14,8 @@ describe("DateInput", () => {
       />
     );
 
-    expect(screen.getByText("May")).toBeDefined();
-    expect(screen.getByText("2024")).toBeDefined();
+    expect(screen.getByText("May")).toBeInTheDocument();
+    expect(screen.getByText("2024")).toBeInTheDocument();
 
     rerender(
       <DateInput
@@ -24,8 +24,8 @@ describe("DateInput", () => {
       />
     );
 
-    expect(screen.getByText("June")).toBeDefined();
-    expect(screen.getByText("2024")).toBeDefined();
+    expect(screen.getByText("June")).toBeInTheDocument();
+    expect(screen.getByText("2024")).toBeInTheDocument();
   });
 
   it("should update next month", async () => {
@@ -83,6 +83,7 @@ describe("DateInput", () => {
         />
       );
 
+      // eslint-disable-next-line jest-dom/prefer-enabled-disabled
       expect(screen.getByTestId("prevMonth")).toHaveProperty('disabled', !isEnabled);
     });
   });
