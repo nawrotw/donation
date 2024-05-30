@@ -9,6 +9,8 @@ export default defineConfig({
     environment: "happy-dom",
     coverage: {
       reporter: ['text', 'json', 'html'],
+      exclude: ['src/stories'],
+      include: ['src/**/*.[jt]s?(x)']
     },
     outputFile: {
       junit: "test-results.xml",

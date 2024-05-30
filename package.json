@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "coverage": "vitest run --coverage",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -21,6 +22,7 @@
     "@mui/types": "^7.2.14",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^15.0.7",
+    "@vitest/coverage-v8": "^1.6.0",
     "date-fns": "^3.6.0",
     "happy-dom": "^14.11.0",
     "react": "^18.2.0",
